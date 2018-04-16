@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RESTauranter.Models.Review>
+
+@{
+    ViewData["Title"] = "Reviews";
+}
+
+<div class="row mt-5">
+    @{
+        foreach (Review review in @Model)
+        {
+            <div class="col-12">
+                    <h5 class="d-inline-block">Review for: @Html.DisplayFor(modelItem => review.RestaurantName)</h5> 
+                        <span class="ml-2 align-top">
+                        @{
+                            for(int i=1; i<=5; i++){
+                                if(i<=review.Stars){
+                                    <img src="~/images/star.png" alt="@review.Stars Stars" class="align-top" />
+                                }else{
+                                    <img src="~/images/star-empty.png" alt="@review.Stars Stars" class="align-top" />
+                                }
+                            }
+                        }
+                        </span>
+
+                    <p>Visited on: @review.ReviewDate.ToString("MMMM d, yyyy")</p>
+                    <p class="ml-3">"@Html.DisplayFor(modelItem => review.Description)"</p>
+                    <footer class="blockquote-footer ml-4"><cite title="@review.CreatedAt.ToString("MMMM d, yyyy")">@Html.DisplayFor(modelItem => review.ReviewerName) --- Reviewed on: @review.CreatedAt.ToString("MMMM d, yyyy")</cite></footer>
+                    <div class="my-3">
+                        <a asp-controller="Home" asp-action="AddHelpful" asp-route-id="@review.ReviewId" class="btn btn-primary btn-sm mx-2"><span class="badge badge-light">@review.Helpful</span> <i class="material-icons">thumb_up</i></a>
+                        <a asp-controller="Home" asp-action="AddUnhelpful" asp-route-id="@review.ReviewId" class="btn btn-primary btn-sm mx-2"><i class="material-icons">thumb_down</i> <span class="badge badge-light">@review.Unhelpful</span></a>
+                    </div>
+                    <hr class="mt-3">
+            </div>
+        }
+    }
+</div>

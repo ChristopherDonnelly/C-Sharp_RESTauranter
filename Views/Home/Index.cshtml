@@ -1,0 +1,51 @@
+﻿@model RESTauranter.Models.Review
+
+@{
+    ViewData["Title"] = "Add a Review";
+}
+
+<div class="row mt-5">
+    <div class="col-12 mb-2">
+        <h2>Write a new Review:</h2>
+    </div>
+    <form asp-controller="Home" asp-action="AddReview" method="post" class="form-control row">
+        <div class="col-8 d-inline-block mt-3">
+            <div class="col-12 d-inline-block my-2">
+                <label asp-for="ReviewerName" class="d-inline-block col-3 p-0 align-top"></label>
+                <input asp-for="ReviewerName" class="form-control d-inline-block col-8 mr-auto" placeholder="Enter Reviewer Name" aria-label="Enter Reviewer Name" />
+                <span asp-validation-for="ReviewerName" class="d-block pl-3 offset-3 text-danger"></span>
+            </div>
+            <div class="col-12 d-inline-block my-2">
+                <label asp-for="RestaurantName" class="d-inline-block col-3 p-0 align-top"></label>
+                <input asp-for="RestaurantName" class="form-control d-inline-block col-8 mr-auto" placeholder="Enter Restaurant Name" aria-label="Enter Restaurant Name" />
+                <span asp-validation-for="RestaurantName" class="d-block pl-3 offset-3 text-danger"></span>
+            </div>
+            <div class="col-12 d-inline-block my-2">
+                <label asp-for="Description" class="d-inline-block col-3 p-0 align-top"></label>
+                <textarea asp-for="Description" class="form-control d-inline-block col-8 mr-auto" placeholder="Enter Description" aria-label="Enter Description"></textarea>
+                <span asp-validation-for="Description" class="d-block pl-3 offset-3 text-danger"></span>
+            </div>
+            <div class="col-12 d-inline-block my-2">
+                <label asp-for="ReviewDate" class="d-inline-block col-3 p-0 align-top"></label>
+                <input asp-for="ReviewDate" class="form-control d-inline-block col-8 mr-auto" placeholder="Enter Date of Visit" aria-label="Enter Date of Visit" />
+                <span asp-validation-for="ReviewDate" class="d-block pl-3 offset-3 text-danger"></span>
+            </div>
+            <div class="col-12 text-right my-3 mr-3">
+                <button type="submit" class="btn btn-dark mt-3">Submit</button>
+            </div>
+        </div>
+        <div class="col-3 d-inline-block align-top mt-3">
+            <div class="col-12 d-inline-block my-2">
+                <label asp-for="Stars" class="d-inline-block col-3 p-0 align-top"></label>
+                <select asp-for="Stars" class="form-control d-inline-block col-8 m-auto" aria-label="Select Rating">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <span asp-validation-for="Stars" class="d-block pl-3 offset-3 text-danger"></span>
+            </div>
+        </div>
+    </form>
+</div>

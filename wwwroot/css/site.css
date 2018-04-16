@@ -1,0 +1,29 @@
+﻿
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+label {
+    padding: 0.375rem 0ps;
+}
+
+textarea {
+    height: 100px;
+}
+
+img {
+    width: 19px;
+}
+
+.btn .badge {
+    position: relative;
+    top: -4px;
+}
+
+.btn ~ .btn .badge {
+    position: relative;
+    top: -11px;
+}
